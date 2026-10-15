@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Day 1, October 15 – Daily Brief</title>
+<meta name="description" content="Learn day: qubits, the life of a web request, how LLMs pick the next word, and Saturn's new ten-sided storm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta name="apple-mobile-web-app-title" content="Daily Brief">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<!--NAV:START--><nav class="topbar" aria-label="Site"><a class="brand" href="./"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 15 L18 15" stroke="var(--s)" stroke-width="3" stroke-linecap="round"/><path d="M2 10 L18 10" stroke="var(--a)" stroke-width="3" stroke-linecap="round"/><path d="M2 5 L18 5" stroke="var(--q)" stroke-width="3" stroke-linecap="round"/><circle cx="10" cy="10" r="3.6" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/></svg>Daily Brief</a><a href="archive.html">Archive</a><a href="learned.html">Learned</a></nav><!--NAV:END-->
+<main>
+<header class="masthead">
+  <p class="dateline">Thursday, October 15, 2026</p>
+  <h1>Day 1: the first stop on every line</h1>
+  <p class="lede">A learn day. Four foundations to build on: what a qubit really is, everything that happens when a web page loads, how a language model picks its next word, and a ten-sided storm that just showed up on Saturn.</p>
+  <!--MAP:START--><div class="linemap" aria-label="Progress on each topic"><a class="row" href="#quantum" style="--c:var(--q)"><span class="name">Quantum</span><span class="rail"><svg viewBox="0 0 300 22" preserveAspectRatio="none" aria-hidden="true"><line x1="8.0" y1="11" x2="292.0" y2="11" stroke="var(--c)" stroke-width="4" stroke-linecap="round" opacity=".22" vector-effect="non-scaling-stroke"/><line x1="8.0" y1="11" x2="8.0" y2="11" stroke="var(--c)" stroke-width="4" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg><i class="dot done today" style="left:2.67%"></i><i class="dot next" style="left:11.27%"></i><i class="dot" style="left:19.88%"></i><i class="dot" style="left:28.48%"></i><i class="dot" style="left:37.09%"></i><i class="dot" style="left:45.70%"></i><i class="dot" style="left:54.30%"></i><i class="dot" style="left:62.91%"></i><i class="dot" style="left:71.52%"></i><i class="dot" style="left:80.12%"></i><i class="dot" style="left:88.73%"></i><i class="dot" style="left:97.33%"></i></span><span class="count">1/12</span></a><a class="row" href="#systems" style="--c:var(--s)"><span class="name">Systems</span><span class="rail"><svg viewBox="0 0 300 22" preserveAspectRatio="none" aria-hidden="true"><line x1="8.0" y1="11" x2="292.0" y2="11" stroke="var(--c)" stroke-width="4" stroke-linecap="round" opacity=".22" vector-effect="non-scaling-stroke"/><line x1="8.0" y1="11" x2="8.0" y2="11" stroke="var(--c)" stroke-width="4" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg><i class="dot done today" style="left:2.67%"></i><i class="dot next" style="left:9.95%"></i><i class="dot" style="left:17.23%"></i><i class="dot" style="left:24.51%"></i><i class="dot" style="left:31.79%"></i><i class="dot" style="left:39.08%"></i><i class="dot" style="left:46.36%"></i><i class="dot" style="left:53.64%"></i><i class="dot" style="left:60.92%"></i><i class="dot" style="left:68.21%"></i><i class="dot" style="left:75.49%"></i><i class="dot" style="left:82.77%"></i><i class="dot" style="left:90.05%"></i><i class="dot" style="left:97.33%"></i></span><span class="count">1/14</span></a><a class="row" href="#ai" style="--c:var(--a)"><span class="name">AI</span><span class="rail"><svg viewBox="0 0 300 22" preserveAspectRatio="none" aria-hidden="true"><line x1="8.0" y1="11" x2="292.0" y2="11" stroke="var(--c)" stroke-width="4" stroke-linecap="round" opacity=".22" vector-effect="non-scaling-stroke"/><line x1="8.0" y1="11" x2="8.0" y2="11" stroke="var(--c)" stroke-width="4" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg><i class="dot done today" style="left:2.67%"></i><i class="dot next" style="left:10.56%"></i><i class="dot" style="left:18.44%"></i><i class="dot" style="left:26.33%"></i><i class="dot" style="left:34.22%"></i><i class="dot" style="left:42.11%"></i><i class="dot" style="left:50.00%"></i><i class="dot" style="left:57.89%"></i><i class="dot" style="left:65.78%"></i><i class="dot" style="left:73.67%"></i><i class="dot" style="left:81.56%"></i><i class="dot" style="left:89.44%"></i><i class="dot" style="left:97.33%"></i></span><span class="count">1/13</span></a><a class="row" href="#wildcard" style="--c:var(--w)"><span class="name">Wildcard</span><span class="rail free"><svg viewBox="0 0 300 22" preserveAspectRatio="none" aria-hidden="true"><line x1="8" y1="11" x2="292" y2="11" stroke="var(--c)" stroke-width="3" stroke-dasharray="6 6" opacity=".35" vector-effect="non-scaling-stroke"/></svg><i class="dot done today" style="left:2.7%"></i></span><span class="count">1 detour</span></a><p class="legend"><i class="dot done today"></i>today <i class="dot done"></i>learned <i class="dot next"></i>next stop</p></div><!--MAP:END-->
+</header>
+
+<!-- ============================ QUANTUM ============================ -->
+<article class="story" id="quantum" data-track="quantum">
+  <p class="kicker">Quantum computing, stop 1 of 12</p>
+  <h2>A qubit is a vector, not a coin mid-flip</h2>
+  <p class="dek">A classical bit holds 0 or 1. A qubit holds a little arrow of length one, and measuring it turns that arrow into a 0 or a 1 with odds set by which way it points.</p>
+
+  <p>Most introductions say a qubit is “0 and 1 at the same time” and move on. Today’s source, Andy Matuschak and Michael Nielsen’s <a href="https://quantum.country/qcvc"><em>Quantum computing for the very curious</em></a>, skips the metaphor (the authors find it close to meaningless) and teaches the actual math object instead. The good news: the object is small.</p>
+
+  <h3>Bits store a number, qubits store a vector</h3>
+  <p>A bit’s state is one of two numbers. A qubit’s state is a two-dimensional vector: two numbers stacked together, a point in what the essay calls <em>state space</em>. Two special vectors play the roles of 0 and 1:</p>
+  <div class="formula"><span>|0⟩ = [1, 0]</span><span>|1⟩ = [0, 1]</span></div>
+  <p>These are the <em>computational basis states</em>. The bracket notation, called a <em>ket</em>, is just a label meaning “this is a quantum state.” One common trip-up: |0⟩ is not the zero vector. It has length one and points along the first axis.</p>
+
+  <figure>
+    <div class="fig">
+      <svg viewBox="0 0 340 190" role="img" aria-label="Left: a bit is one of two boxes, 0 or 1. Right: a qubit is an arrow of length one between the |0⟩ axis and the |1⟩ axis, here pointing to 0.6 along |0⟩ and 0.8 along |1⟩.">
+        <text x="70" y="18" text-anchor="middle" class="svg-ink" font-size="14" font-weight="700">Bit</text>
+        <rect x="24" y="50" width="40" height="40" rx="7" fill="none" class="svg-stroke-muted" stroke-width="1.5"/>
+        <text x="44" y="76" text-anchor="middle" class="svg-muted" font-size="17">0</text>
+        <rect x="76" y="50" width="40" height="40" rx="7" class="svg-c"/>
+        <text x="96" y="76" text-anchor="middle" font-size="17" fill="var(--surface)" font-weight="700">1</text>
+        <text x="70" y="116" text-anchor="middle" class="svg-muted" font-size="12">exactly one of two</text>
+        <text x="70" y="132" text-anchor="middle" class="svg-muted" font-size="12">values (here: 1)</text>
+        <line x1="150" y1="8" x2="150" y2="182" class="svg-stroke-rule" stroke-width="1"/>
+        <text x="250" y="18" text-anchor="middle" class="svg-ink" font-size="14" font-weight="700">Qubit</text>
+        <path d="M290 160 A110 110 0 0 0 180 50" fill="none" class="svg-stroke-rule" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <line x1="180" y1="160" x2="312" y2="160" class="svg-stroke-muted" stroke-width="1.5"/>
+        <line x1="180" y1="160" x2="180" y2="36" class="svg-stroke-muted" stroke-width="1.5"/>
+        <text x="314" y="164" class="svg-muted" font-size="13">|0⟩</text>
+        <text x="186" y="40" class="svg-muted" font-size="13">|1⟩</text>
+        <line x1="246" y1="72" x2="246" y2="160" class="svg-stroke-c" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <line x1="246" y1="72" x2="180" y2="72" class="svg-stroke-c" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <line x1="180" y1="160" x2="246" y2="72" class="svg-stroke-c" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="246" cy="72" r="5" class="svg-c"/>
+        <text x="246" y="178" text-anchor="middle" class="svg-c" font-size="12" font-weight="600">0.6</text>
+        <text x="172" y="76" text-anchor="end" class="svg-c" font-size="12" font-weight="600">0.8</text>
+        <text x="254" y="66" class="svg-ink" font-size="12">length = 1</text>
+      </svg>
+    </div>
+    <figcaption>The state 0.6|0⟩ + 0.8|1⟩ is the arrow [0.6, 0.8]. Every valid state sits on the dashed circle of radius one.</figcaption>
+  </figure>
+
+  <h3>Superposition is a weighted mix</h3>
+  <p>Any other qubit state is a mix of the two: <b>α|0⟩ + β|1⟩</b>. The weights α and β are called <em>amplitudes</em>. The essay’s running example, 0.6|0⟩ + 0.8|1⟩, is simply the vector [0.6, 0.8]. “Superposition” is physics vocabulary for what a programmer would call a linear combination.</p>
+  <p>There’s one rule, the <em>normalization constraint</em>: the squared amplitudes must add to 1, so |α|² + |β|² = 1. Check the example: 0.36 + 0.64 = 1. In general amplitudes can be complex numbers, which is why the full picture is a sphere rather than the circle drawn here. That comes later.</p>
+
+  <h3>Measuring turns amplitudes into odds</h3>
+  <p>You never see α and β directly. Measuring a qubit gives a plain 0 or 1: 0 with probability |α|², 1 with probability |β|². For 0.6|0⟩ + 0.8|1⟩ that’s 36% and 64%. Measuring also changes the qubit: afterwards it <em>is</em> |0⟩ or |1⟩, and the original amplitudes are gone. To estimate them you need many identically prepared qubits.</p>
+
+  <figure id="qubit-playground">
+    <div class="fig">
+      <svg viewBox="0 0 300 300" style="max-width:300px;margin:0 auto" role="img" aria-label="Interactive qubit state on a circle. The arrow's horizontal and vertical components are the amplitudes for |0⟩ and |1⟩.">
+        <circle cx="150" cy="150" r="110" fill="none" class="svg-stroke-rule" stroke-width="1.5"/>
+        <line x1="22" y1="150" x2="278" y2="150" class="svg-stroke-muted" stroke-width="1.2"/>
+        <line x1="150" y1="22" x2="150" y2="278" class="svg-stroke-muted" stroke-width="1.2"/>
+        <text x="282" y="146" text-anchor="end" class="svg-muted" font-size="13">|0⟩</text>
+        <text x="18" y="146" class="svg-muted" font-size="13">−|0⟩</text>
+        <text x="156" y="30" class="svg-muted" font-size="13">|1⟩</text>
+        <text x="156" y="282" class="svg-muted" font-size="13">−|1⟩</text>
+        <line id="qp-px" x1="0" y1="0" x2="0" y2="0" class="svg-stroke-c" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <line id="qp-py" x1="0" y1="0" x2="0" y2="0" class="svg-stroke-c" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <line id="qp-vec" x1="150" y1="150" x2="216" y2="62" class="svg-stroke-c" stroke-width="4" stroke-linecap="round"/>
+        <circle id="qp-tip" cx="216" cy="62" r="7" class="svg-c"/>
+      </svg>
+      <label class="readout" for="qp-angle" style="display:block;margin-top:8px">Rotate the state</label>
+      <input id="qp-angle" type="range" min="0" max="359" step="1" value="53" aria-describedby="qp-read">
+      <p class="readout" id="qp-read" style="margin:4px 0 10px">α = <b id="qp-a">0.60</b>, β = <b id="qp-b">0.80</b>, so α² + β² = <b>1</b></p>
+      <div class="bars" aria-live="polite">
+        <div class="bar"><span>P(0)</span><span class="track"><span class="fill" id="qp-p0" style="width:36%"></span></span><span class="val" id="qp-p0v">36%</span></div>
+        <div class="bar"><span>P(1)</span><span class="track"><span class="fill" id="qp-p1" style="width:64%"></span></span><span class="val" id="qp-p1v">64%</span></div>
+      </div>
+      <div class="controls">
+        <button class="btn solid" id="qp-once" type="button">Measure once</button>
+        <button class="btn" id="qp-many" type="button">Measure 100 fresh copies</button>
+      </div>
+      <p class="readout" id="qp-out" aria-live="polite" style="margin:10px 0 0;min-height:1.5em"></p>
+      <div class="bars" id="qp-hist" hidden style="margin-top:6px">
+        <div class="bar"><span>Got 0</span><span class="track"><span class="fill" id="qp-h0"></span></span><span class="val" id="qp-h0v"></span></div>
+        <div class="bar"><span>Got 1</span><span class="track"><span class="fill" id="qp-h1"></span></span><span class="val" id="qp-h1v"></span></div>
+      </div>
+    </div>
+    <figcaption>Try it: rotate the arrow and watch the odds change. Point it left or down and the amplitudes go negative while the odds stay the same, which matters later when amplitudes start cancelling each other out. This picture uses real amplitudes only.</figcaption>
+  </figure>
+
+  <h3>Why qubits are so hard to build</h3>
+  <p>The essay also explains a tension behind a lot of quantum hardware news. A qubit has to be isolated so the outside world doesn’t disturb its state, yet controllable enough for you to change it on purpose. The authors’ example: a neutrino would hold a quantum state almost perfectly because it barely interacts with anything, but for exactly that reason there’s no practical way to steer it. Much of quantum hardware design is a negotiation between those two needs.</p>
+
+  <div class="keep">
+    <h4>Worth keeping</h4>
+    <ul>
+      <li>A qubit’s state is a unit-length vector in a 2-D space, written α|0⟩ + β|1⟩.</li>
+      <li>The amplitudes obey |α|² + |β|² = 1. “Superposition” just means a linear combination.</li>
+      <li>Measuring gives 0 or 1 with probabilities |α|² and |β|², and leaves the qubit in that basis state.</li>
+    </ul>
+  </div>
+
+  <div class="source">
+    <a class="t" href="https://quantum.country/qcvc">Quantum computing for the very curious</a>
+    <span class="by">Andy Matuschak &amp; Michael Nielsen, Quantum Country, 2019</span>
+    <p>Read Part I, “The state of a qubit.” The essay has spaced-repetition questions built in; sign in and it will quiz you over the next few weeks so the ideas stick.</p>
+    <p class="more">It assumes basic linear algebra. If vectors and matrices feel rusty, 3Blue1Brown’s <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of linear algebra</a> is the fastest refresher.</p>
+  </div>
+  <p class="nextstop"><span><b>Next stop:</b> quantum gates, NOT (X) and Hadamard, and how you change a qubit’s state on purpose.</span></p>
+</article>
+
+<!-- ============================ SYSTEMS ============================ -->
+<article class="story" id="systems" data-track="systems">
+  <p class="kicker">Software engineering, stop 1 of 14</p>
+  <h2>Eight things happen before a web page appears</h2>
+  <p class="dek">Typing a URL kicks off a lookup, two handshakes, a request, some server work, a response and a render. Almost every later topic, from caching to load balancers, is about making one of these steps faster or skipping it.</p>
+
+  <p>“What happens when you type google.com and press enter?” is a classic interview question, and the GitHub repo <a href="https://github.com/alex/what-happens-when"><em>what-happens-when</em></a> answers it collaboratively, all the way down to keyboard interrupts. Here’s the backbone. Think of it as the map we’ll fill in over the coming weeks. Tap through the steps.</p>
+
+  <figure class="stepper" id="req-stepper">
+    <div class="fig">
+      <svg viewBox="0 0 340 446" role="img" aria-label="Sequence diagram with three columns: your browser, DNS, and the server. Steps 1 to 8 flow between them.">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="svg-ink"/></marker>
+        </defs>
+        <g font-size="12" font-weight="600">
+          <rect x="7" y="6" width="96" height="28" rx="14" class="svg-paper svg-stroke-muted" stroke-width="1.2"/>
+          <text x="55" y="25" text-anchor="middle" class="svg-ink">Your browser</text>
+          <rect x="132" y="6" width="76" height="28" rx="14" class="svg-paper svg-stroke-muted" stroke-width="1.2"/>
+          <text x="170" y="25" text-anchor="middle" class="svg-ink">DNS</text>
+          <rect x="242" y="6" width="86" height="28" rx="14" class="svg-paper svg-stroke-muted" stroke-width="1.2"/>
+          <text x="285" y="25" text-anchor="middle" class="svg-ink">Server</text>
+        </g>
+        <g class="svg-stroke-rule" stroke-width="1.5" stroke-dasharray="4 4">
+          <line x1="55" y1="36" x2="55" y2="440"/><line x1="170" y1="36" x2="170" y2="440"/><line x1="285" y1="36" x2="285" y2="440"/>
+        </g>
+        <g font-size="11" class="halo">
+          <g data-step="1">
+            <rect x="8" y="50" width="94" height="28" rx="7" class="svg-paper svg-stroke-c" stroke-width="2"/>
+            <text x="55" y="68" text-anchor="middle" class="svg-ink"><tspan class="svg-c" font-weight="700">1 </tspan>Parse URL</text>
+          </g>
+          <g data-step="2">
+            <line x1="57" y1="104" x2="167" y2="104" class="svg-stroke-ink" stroke-width="1.5" marker-end="url(#ah)"/>
+            <text x="112" y="98" text-anchor="middle" class="svg-ink"><tspan class="svg-c" font-weight="700">2 </tspan>IP for example.com?</text>
+            <line x1="168" y1="130" x2="58" y2="130" class="svg-stroke-ink" stroke-width="1.5" marker-end="url(#ah)"/>
+            <text x="112" y="124" text-anchor="middle" class="svg-ink">203.0.113.7</text>
+          </g>
+          <g data-step="3">
+            <line x1="57" y1="164" x2="282" y2="164" class="svg-stroke-ink" stroke-width="1.5" marker-end="url(#ah)"/>
+            <text x="170" y="158" text-anchor="middle" class="svg-ink"><tspan class="svg-c" font-weight="700">3 </tspan>SYN</text>
+            <line x1="283" y1="186" x2="58" y2="186" class="svg-stroke-ink" stroke-width="1.5" marker-end="url(#ah)"/>
+            <text x="170" y="180" text-anchor="middle" class="svg-ink">SYN-ACK</text>
+            <line x1="57" y1="208" x2="282" y2="208" class="svg-stroke-ink" stroke-width="1.5" marker-end="url(#ah)"/>
+            <text x="170" y="202" text-anchor="middle" class="svg-ink">ACK</text>
+          </g>
+          <g data-step="4">
+            <line x1="57" y1="240" x2="282" y2="240" class="svg-stroke-ink" stroke-width="1.5" marker-end="url(#ah)"/>
+            <text x="170" y="234" text-anchor="middle" class="svg-ink"><tspan class="svg-c" font-weight="700">4 </tspan>hello + key share</text>
+            <line x1="283" y1="262" x2="58" y2="262" class="svg-stroke-ink" stroke-width="1.5" marker-end="url(#ah)"/>
+            <text x="170" y="256" text-anchor="middle" class="svg-ink">certificate + key share</text>
+            <rect x="40" y="272" width="260" height="20" rx="10" fill="none" class="svg-stroke-c" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <text x="170" y="286" text-anchor="middle" class="svg-c" font-weight="600">keys agreed, encrypted from here</text>
+          </g>
+          <g data-step="5">
+            <line x1="57" y1="320" x2="282" y2="320" class="svg-stroke-ink" stroke-width="1.5" marker-end="url(#ah)"/>
+            <text x="170" y="314" text-anchor="middle" class="svg-ink"><tspan class="svg-c" font-weight="700">5 </tspan>GET /   Host: example.com</text>
+          </g>
+          <g data-step="6">
+            <rect x="232" y="332" width="104" height="40" rx="7" class="svg-paper svg-stroke-c" stroke-width="2"/>
+            <text x="284" y="349" text-anchor="middle" class="svg-ink"><tspan class="svg-c" font-weight="700">6 </tspan>route → app</text>
+            <text x="284" y="364" text-anchor="middle" class="svg-ink">→ database</text>
+          </g>
+          <g data-step="7">
+            <line x1="283" y1="394" x2="58" y2="394" class="svg-stroke-ink" stroke-width="1.5" marker-end="url(#ah)"/>
+            <text x="170" y="388" text-anchor="middle" class="svg-ink"><tspan class="svg-c" font-weight="700">7 </tspan>200 OK + HTML</text>
+          </g>
+          <g data-step="8">
+            <rect x="6" y="408" width="98" height="28" rx="7" class="svg-paper svg-stroke-c" stroke-width="2"/>
+            <text x="55" y="426" text-anchor="middle" class="svg-ink"><tspan class="svg-c" font-weight="700">8 </tspan>Render</text>
+          </g>
+        </g>
+      </svg>
+      <div class="panel" aria-live="polite">
+        <h4 id="st-title">Step 1 of 8: Parse the URL</h4>
+        <p id="st-body"></p>
+      </div>
+      <div class="controls">
+        <button class="btn" id="st-prev" type="button">Previous</button>
+        <button class="btn solid" id="st-next" type="button">Next step</button>
+        <button class="btn" id="st-all" type="button">Show all</button>
+      </div>
+    </div>
+    <figcaption>A simplified sequence diagram. Time runs top to bottom; each arrow is a message across the network.</figcaption>
+  </figure>
+
+  <p>Step 8 is where frontend work lives. Steps 2 to 7 are why page speed is mostly about skipping work: a cached DNS answer, a reused connection, a 304 instead of a full download.</p>
+
+  <h3>Round trips are the hidden cost</h3>
+  <p>Each arrow back and forth across the network costs a <em>round trip</em>, typically tens of milliseconds, often more on mobile. Newer protocols exist largely to cut them. With nothing cached, here’s how many it takes before the first byte of HTML arrives:</p>
+  <figure>
+    <div class="fig">
+      <div class="stack" role="img" aria-label="Round trips before the first byte. HTTP/1.1 with TLS 1.2: 5 (DNS, TCP, TLS, TLS, HTTP). HTTP/2 with TLS 1.3: 4 (DNS, TCP, TLS, HTTP). HTTP/3 over QUIC: 3 (DNS, QUIC with TLS, HTTP).">
+        <div><div class="lbl">HTTP/1.1 + TLS 1.2 <span>5 round trips</span></div>
+          <div class="segs"><span class="seg dns">DNS</span><span class="seg tcp">TCP</span><span class="seg tls">TLS</span><span class="seg tls">TLS</span><span class="seg http">HTTP</span></div></div>
+        <div><div class="lbl">HTTP/2 + TLS 1.3 <span>4 round trips</span></div>
+          <div class="segs"><span class="seg dns">DNS</span><span class="seg tcp">TCP</span><span class="seg tls">TLS</span><span class="seg http">HTTP</span></div></div>
+        <div><div class="lbl">HTTP/3 over QUIC <span>3 round trips</span></div>
+          <div class="segs"><span class="seg dns">DNS</span><span class="seg quic">QUIC</span><span class="seg http">HTTP</span></div></div>
+      </div>
+    </div>
+    <figcaption>Cold start: no cached DNS answer or open connection. QUIC merges the transport and encryption handshakes into one. Session resumption and 0-RTT can trim these further on repeat visits.</figcaption>
+  </figure>
+
+  <h3>What the article leaves out</h3>
+  <p>The README describes one browser talking to one server, and parts of it predate today’s protocols. It mentions SPDY, which evolved into HTTP/2, and walks through the older TLS 1.2 key exchange. Real production stacks also put more in the path: a CDN answering from a nearby city, a load balancer spreading traffic across many app servers, caches in front of the database. Each of those is a future stop on this line.</p>
+
+  <div class="keep">
+    <h4>Worth keeping</h4>
+    <ul>
+      <li>Before any HTTP is sent, the browser has to find the server (DNS) and open an encrypted connection (TCP + TLS).</li>
+      <li>The server routes the request to code that builds a response; status codes like 200 and 304 tell the browser what happened.</li>
+      <li>Rendering repeats the fetch cycle for every image, script and stylesheet, so most performance work is about skipping steps.</li>
+    </ul>
+  </div>
+
+  <div class="source">
+    <a class="t" href="https://github.com/alex/what-happens-when">What happens when…</a>
+    <span class="by">alex/what-happens-when on GitHub, written by many contributors, public domain (CC0)</span>
+    <p>Read the sections on DNS lookup, opening a socket, the TLS handshake, the HTTP protocol and server request handling. Skip the keyboard-driver sections unless you’re curious.</p>
+  </div>
+  <p class="nextstop"><span><b>Next stop:</b> HTTP and APIs: methods, status codes, headers, and what actually makes an API “RESTful.”</span></p>
+</article>
+
+<!-- ============================ AI ============================ -->
+<article class="story" id="ai" data-track="ai">
+  <p class="kicker">AI, stop 1 of 13</p>
+  <h2>A language model is a next-word machine with a very good map of words</h2>
+  <p class="dek">LLMs turn words into long lists of numbers, refine those lists through dozens of layers, and output odds for the next word. Generating text is that one step on repeat.</p>
+
+  <p>Most explanations stop at “it predicts the next word.” Timothy B. Lee and Sean Trott’s <a href="https://www.understandingai.org/p/large-language-models-explained-with">explainer</a> goes a level deeper without equations, and it’s still one of the clearest tours of a model’s insides. It was written in 2023. Models are far bigger now, but the core machinery is the same.</p>
+
+  <h3>Words become coordinates</h3>
+  <p>A model doesn’t see C-A-T. It sees a <em>word vector</em>, a list of hundreds or thousands of numbers. The authors’ analogy is latitude and longitude: two numbers place a city on a map, and nearby cities have similar numbers. Word vectors do the same thing in a space with far more dimensions, so words with related meanings land near each other. Cat sits near dog, kitten and pet.</p>
+  <figure>
+    <div class="fig">
+      <svg viewBox="0 0 340 214" role="img" aria-label="Illustrative two-dimensional word space with three clusters: animals (cat, kitten, dog, pet), capital cities (Paris, London, Berlin, Warsaw), and coffee words (coffee, tea, cream, sugar).">
+        <line x1="14" y1="200" x2="330" y2="200" class="svg-stroke-rule" stroke-width="1.2"/>
+        <line x1="14" y1="200" x2="14" y2="8" class="svg-stroke-rule" stroke-width="1.2"/>
+        <text x="326" y="194" text-anchor="end" class="svg-muted" font-size="10.5">dimension 1</text>
+        <text x="20" y="18" class="svg-muted" font-size="10.5">dimension 2</text>
+        <g fill="none" class="svg-stroke-rule" stroke-width="1.3" stroke-dasharray="3 4">
+          <ellipse cx="86" cy="76" rx="58" ry="40"/><ellipse cx="252" cy="66" rx="66" ry="42"/><ellipse cx="174" cy="158" rx="70" ry="32"/>
+        </g>
+        <g class="svg-c">
+          <circle cx="70" cy="64" r="4.5"/><circle cx="104" cy="56" r="4.5"/><circle cx="60" cy="92" r="4.5"/><circle cx="108" cy="90" r="4.5"/>
+          <circle cx="226" cy="56" r="4.5"/><circle cx="270" cy="44" r="4.5"/><circle cx="276" cy="84" r="4.5"/><circle cx="232" cy="90" r="4.5"/>
+          <circle cx="132" cy="154" r="4.5"/><circle cx="168" cy="170" r="4.5"/><circle cx="198" cy="146" r="4.5"/><circle cx="214" cy="174" r="4.5"/>
+        </g>
+        <g font-size="12" class="svg-ink halo">
+          <text x="70" y="56" text-anchor="middle">cat</text><text x="104" y="48" text-anchor="middle">kitten</text><text x="60" y="108" text-anchor="middle">dog</text><text x="108" y="106" text-anchor="middle">pet</text>
+          <text x="226" y="48" text-anchor="middle">Paris</text><text x="270" y="36" text-anchor="middle">London</text><text x="276" y="100" text-anchor="middle">Berlin</text><text x="232" y="106" text-anchor="middle">Warsaw</text>
+          <text x="132" y="146" text-anchor="middle">coffee</text><text x="168" y="186" text-anchor="middle">tea</text><text x="198" y="138" text-anchor="middle">cream</text><text x="214" y="190" text-anchor="middle">sugar</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>An illustrative 2-D sketch. Real word vectors have hundreds to thousands of dimensions, but the idea holds: closeness means related meaning.</figcaption>
+  </figure>
+  <p>Because they’re numbers, you can do arithmetic on meaning. Google’s 2013 word2vec project found that taking <em>biggest</em>, subtracting <em>big</em> and adding <em>small</em> lands closest to <em>smallest</em>. The same trick maps countries to capitals. It also absorbs human biases from the text it learned from, which remains an open research problem.</p>
+
+  <h3>Layers sharpen each word’s meaning</h3>
+  <p>A word like <em>bank</em> means different things in different sentences, so one fixed vector isn’t enough. An LLM passes the vectors through a stack of layers (GPT-3 had 96, with each vector 12,288 numbers long), and each layer edits them to add context: this <em>his</em> refers to John, this <em>bank</em> is the money kind. Each layer does two things:</p>
+  <ul>
+    <li><b>Attention.</b> Each word looks around the prompt for other words that matter to it and pulls in their information. The authors describe it as matchmaking: every word advertises what it’s looking for and what it offers, and good matches share information.</li>
+    <li><b>Feed-forward.</b> Each word is then processed on its own by a large network that behaves like stored knowledge, patterns and facts absorbed in training. Research the article covers found one such layer in GPT-2 converting “Poland” into “Warsaw.”</li>
+  </ul>
+  <p>A neat division of labour falls out of this: attention retrieves from your prompt, and the feed-forward layers retrieve from what the model learned.</p>
+
+  <figure>
+    <div class="fig">
+      <svg viewBox="0 0 340 428" role="img" aria-label="Pipeline: the prompt is split into tokens, each token becomes a vector, 96 layers of attention and feed-forward refine the vectors, the model outputs odds for the next word, picks sugar, appends it and repeats.">
+        <defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="svg-c"/></marker></defs>
+        <rect x="16" y="10" width="286" height="32" rx="8" class="svg-paper svg-stroke-muted" stroke-width="1.2"/>
+        <text x="159" y="31" text-anchor="middle" class="svg-ink" font-size="13">I like my coffee with cream and …</text>
+        <text x="16" y="64" class="svg-muted" font-size="11"><tspan class="svg-c" font-weight="700">1 </tspan>Split into tokens</text>
+        <g font-size="11.5" class="svg-ink">
+          <rect x="16" y="72" width="20" height="22" rx="5" fill="none" class="svg-stroke-c" stroke-width="1.4"/><text x="26" y="87" text-anchor="middle">I</text>
+          <rect x="42" y="72" width="36" height="22" rx="5" fill="none" class="svg-stroke-c" stroke-width="1.4"/><text x="60" y="87" text-anchor="middle">like</text>
+          <rect x="84" y="72" width="28" height="22" rx="5" fill="none" class="svg-stroke-c" stroke-width="1.4"/><text x="98" y="87" text-anchor="middle">my</text>
+          <rect x="118" y="72" width="50" height="22" rx="5" fill="none" class="svg-stroke-c" stroke-width="1.4"/><text x="143" y="87" text-anchor="middle">coffee</text>
+          <rect x="174" y="72" width="38" height="22" rx="5" fill="none" class="svg-stroke-c" stroke-width="1.4"/><text x="193" y="87" text-anchor="middle">with</text>
+          <rect x="218" y="72" width="46" height="22" rx="5" fill="none" class="svg-stroke-c" stroke-width="1.4"/><text x="241" y="87" text-anchor="middle">cream</text>
+          <rect x="270" y="72" width="32" height="22" rx="5" fill="none" class="svg-stroke-c" stroke-width="1.4"/><text x="286" y="87" text-anchor="middle">and</text>
+        </g>
+        <text x="16" y="118" class="svg-muted" font-size="11"><tspan class="svg-c" font-weight="700">2 </tspan>Each token becomes a vector</text>
+        <g class="svg-c" id="vec-cells"></g>
+        <text x="16" y="190" class="svg-muted" font-size="11"><tspan class="svg-c" font-weight="700">3 </tspan>Layers refine the vectors</text>
+        <g font-size="11.5">
+          <rect x="16" y="198" width="286" height="30" rx="7" class="svg-paper svg-stroke-c" stroke-width="1.6"/>
+          <text x="159" y="217" text-anchor="middle" class="svg-ink"><tspan font-weight="700">Layer 1:</tspan> attention, then feed-forward</text>
+          <rect x="16" y="234" width="286" height="30" rx="7" class="svg-paper svg-stroke-c" stroke-width="1.6"/>
+          <text x="159" y="253" text-anchor="middle" class="svg-ink"><tspan font-weight="700">Layer 2:</tspan> attention, then feed-forward</text>
+          <text x="159" y="278" text-anchor="middle" class="svg-muted" font-size="14">⋮</text>
+          <rect x="16" y="284" width="286" height="30" rx="7" class="svg-paper svg-stroke-c" stroke-width="1.6"/>
+          <text x="159" y="303" text-anchor="middle" class="svg-ink"><tspan font-weight="700">Layer 96</tspan> (in GPT-3)</text>
+        </g>
+        <text x="16" y="338" class="svg-muted" font-size="11"><tspan class="svg-c" font-weight="700">4 </tspan>Odds for the next word, then pick one</text>
+        <g font-size="12" class="svg-ink">
+          <text x="16" y="361">sugar</text><rect x="86" y="350" width="170" height="14" rx="3" class="svg-c"/><text x="262" y="361" class="svg-muted" font-size="11">58%</text>
+          <text x="16" y="383">honey</text><rect x="86" y="372" width="42" height="14" rx="3" class="svg-c" opacity=".45"/><text x="134" y="383" class="svg-muted" font-size="11">14%</text>
+          <text x="16" y="405">cinnamon</text><rect x="86" y="394" width="30" height="14" rx="3" class="svg-c" opacity=".45"/><text x="122" y="405" class="svg-muted" font-size="11">10%</text>
+        </g>
+        <path d="M296 357 C 330 357, 330 357, 330 300 L 330 60 C 330 26, 330 26, 306 26" fill="none" class="svg-stroke-c" stroke-width="2" marker-end="url(#ah2)"/>
+        <text x="323" y="420" text-anchor="end" class="svg-c" font-size="11" font-weight="600"><tspan font-weight="700">5 </tspan>append “sugar” and repeat</text>
+      </svg>
+    </div>
+    <figcaption>The whole generation loop. Odds shown are illustrative.</figcaption>
+  </figure>
+
+  <h3>Training: guess the next word, adjust, repeat</h3>
+  <p>No one labels the training data. The model reads ordinary text, guesses each next word, and an algorithm called <em>backpropagation</em> nudges its billions of weights so the right word becomes a little more likely next time. GPT-3 did this over roughly 500 billion words. The surprise of the past few years is how much ability comes out of that single, simple objective once you scale it up.</p>
+
+  <h3>Try it: pick the next word</h3>
+  <figure id="predictor">
+    <div class="fig">
+      <p class="readout" style="margin:0 0 10px;font-size:16px">I like my coffee with cream and <b id="pr-pick" style="color:var(--c)">…</b></p>
+      <div class="bars" id="pr-bars"></div>
+      <label class="readout" for="pr-temp" style="display:block;margin-top:14px">Temperature: <b id="pr-tv">1.0</b></label>
+      <input id="pr-temp" type="range" min="0.2" max="2" step="0.1" value="1">
+      <div class="controls">
+        <button class="btn solid" id="pr-go" type="button">Pick next word</button>
+        <button class="btn" id="pr-reset" type="button">Reset</button>
+      </div>
+    </div>
+    <figcaption>Made-up odds for six candidates; a real model scores around 100,000 tokens at every step. Temperature reshapes the odds: low makes the favourite near-certain, high flattens them. Temperature isn’t covered in the article; it’s the bridge to the next stop.</figcaption>
+  </figure>
+
+  <div class="keep">
+    <h4>Worth keeping</h4>
+    <ul>
+      <li>LLMs represent each word as a long vector, and words with similar meanings sit close together.</li>
+      <li>A stack of layers refines those vectors: attention pulls in context from the prompt, feed-forward layers add learned knowledge.</li>
+      <li>Training is next-word prediction over huge amounts of text, with backpropagation adjusting billions of weights.</li>
+    </ul>
+  </div>
+
+  <div class="source">
+    <a class="t" href="https://www.understandingai.org/p/large-language-models-explained-with">Large language models, explained with a minimum of math and jargon</a>
+    <span class="by">Timothy B. Lee &amp; Sean Trott, Understanding AI, 2023</span>
+    <p>Read the whole thing, about 30 minutes. The section tracing how GPT-2 works out “John gave a drink to Mary” is the highlight.</p>
+  </div>
+  <p class="nextstop"><span><b>Next stop:</b> tokens, context windows and sampling: what models actually read, how much they can hold, and how temperature works.</span></p>
+</article>
+
+<!-- ============================ WILDCARD ============================ -->
+<article class="story" id="wildcard" data-track="wildcard">
+  <p class="kicker">Wildcard</p>
+  <h2>Saturn grew a ten-sided storm, and no one knows why now</h2>
+  <p class="dek">Saturn’s north pole has had a hexagon of clouds for over 40 years. Hubble has now confirmed a decagon around the south pole, and it seems to have formed only in the last few years.</p>
+
+  <p>On September 2, a team led by Agustín Sánchez-Lavega of the University of the Basque Country published a paper in <em>Science Advances</em> confirming a giant ten-sided wave in the ammonia clouds circling Saturn’s south pole. Astronomers had been looking for a southern twin to the famous northern hexagon in Hubble images since 1990.</p>
+
+  <figure>
+    <div class="fig">
+      <svg viewBox="0 0 340 206" role="img" aria-label="Two views looking down on Saturn's poles. North: a six-sided hexagon, seen since the 1980s. South: a slightly irregular ten-sided decagon, seen since 2023.">
+        <g>
+          <circle cx="85" cy="98" r="74" class="svg-c" opacity=".12"/>
+          <circle cx="85" cy="98" r="74" fill="none" class="svg-stroke-c" stroke-width="1.2" opacity=".5"/>
+          <circle cx="85" cy="98" r="30" fill="none" class="svg-stroke-c" stroke-width="1" opacity=".35"/>
+          <polygon id="hexagon" fill="none" class="svg-stroke-c" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="85" cy="98" r="3.5" class="svg-ink"/>
+          <text x="85" y="14" text-anchor="middle" class="svg-muted" font-size="11.5">seen since the 1980s</text>
+          <text x="85" y="192" text-anchor="middle" class="svg-ink" font-size="13" font-weight="700">North: hexagon</text>
+        </g>
+        <g>
+          <circle cx="255" cy="98" r="74" class="svg-c" opacity=".12"/>
+          <circle cx="255" cy="98" r="74" fill="none" class="svg-stroke-c" stroke-width="1.2" opacity=".5"/>
+          <circle cx="255" cy="98" r="30" fill="none" class="svg-stroke-c" stroke-width="1" opacity=".35"/>
+          <polygon id="decagon" fill="none" class="svg-stroke-c" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="255" cy="98" r="3.5" class="svg-ink"/>
+          <text x="255" y="14" text-anchor="middle" class="svg-muted" font-size="11.5">seen since 2023</text>
+          <text x="255" y="192" text-anchor="middle" class="svg-ink" font-size="13" font-weight="700">South: decagon</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>A schematic, looking straight down on each pole. Both polygons trace a jet stream; the decagon is drawn slightly uneven because it is still changing shape.</figcaption>
+  </figure>
+
+  <h3>Bigger, younger, restless</h3>
+  <table class="compare">
+    <thead><tr><th></th><th>North hexagon</th><th>South decagon</th></tr></thead>
+    <tbody>
+      <tr><td>First seen</td><td>1980s, by the Voyager probes</td><td>Faint hints in 2023, clear in 2025</td></tr>
+      <tr><td>Motion</td><td>Practically stationary</td><td>Drifts east at about 10 km/h</td></tr>
+      <tr><td>Stability</td><td>Unchanged for 40+ years</td><td>Still evolving and strengthening</td></tr>
+    </tbody>
+  </table>
+  <p>Both sit on jet streams, fast rings of wind around the poles. The decagon isn’t just a pattern in the cloud tops: Hubble’s different wavelengths see it at several altitudes, so it extends down through multiple layers of the atmosphere. It is also enormous.</p>
+
+  <figure>
+    <div class="fig">
+      <div style="font-family:var(--sans);font-size:14px;display:grid;gap:12px" role="img" aria-label="Earth's diameter, 12,742 km, compared with one side of the decagon, more than 16,700 km.">
+        <div><div style="display:flex;justify-content:space-between"><span>Earth, edge to edge</span><span style="color:var(--muted);font-variant-numeric:tabular-nums">12,742 km</span></div>
+          <div class="track" style="height:20px;border-radius:4px;background:color-mix(in srgb,var(--c) 10%,transparent);margin-top:4px"><div style="width:76%;height:100%;border-radius:4px;background:var(--muted)"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between"><span>One side of the decagon</span><span style="color:var(--muted);font-variant-numeric:tabular-nums">16,700+ km</span></div>
+          <div class="track" style="height:20px;border-radius:4px;background:color-mix(in srgb,var(--c) 10%,transparent);margin-top:4px"><div style="width:100%;height:100%;border-radius:4px;background:var(--c)"></div></div></div>
+      </div>
+    </div>
+    <figcaption>A single side of the decagon is longer than Earth is wide, and there are ten of them.</figcaption>
+  </figure>
+
+  <h3>Amateurs saw it first</h3>
+  <ol class="timeline">
+    <li><b>1980s</b>The Voyager probes spot the hexagon over Saturn’s north pole.</li>
+    <li><b>2004 to 2017</b>NASA’s Cassini orbits Saturn and sees no sign of a long-lived southern polygon.</li>
+    <li><b>2017 to 2023</b>The south pole is tilted away from Earth. The decagon most likely forms out of view.</li>
+    <li><b>2023</b>Faint hints of a ten-vertex shape appear in Hubble images, recognised later when the team looked back.</li>
+    <li class="hl"><b>2024</b>Amateur astronomers Trevor Barry and Jean-Paul Oger, with Sánchez-Lavega, spot a wavy band in images shared to a university-run planetary image archive.</li>
+    <li><b>August to September 2025</b>Hubble shows a fully formed decagon.</li>
+    <li class="hl"><b>September 2, 2026</b>The confirmation is published in <em>Science Advances</em>.</li>
+  </ol>
+
+  <h3>The open question</h3>
+  <p>Why a polygon appeared now, after decades without one, is what the team can’t yet answer. For the northern hexagon, the leading explanation is that the jet stream meanders north and south as it circles the pole, and those meanders lock into a whole number of crests; spinning tanks of fluid in the lab have produced similar polygons. Whether the decagon settles down like the hexagon or breaks apart is what the next few years of observation should show, as Saturn’s southern summer keeps the pole in view.</p>
+
+  <div class="keep">
+    <h4>Worth keeping</h4>
+    <ul>
+      <li>Saturn now has a ten-sided wave around its south pole, a counterpart to the long-lived north-pole hexagon.</li>
+      <li>It rides a jet stream, extends through several atmospheric layers, drifts east about 10 km/h, and each side is longer than Earth is wide.</li>
+      <li>It appears to have formed between 2017 and 2023, and why it formed now is unknown.</li>
+    </ul>
+  </div>
+
+  <div class="source">
+    <a class="t" href="https://science.nasa.gov/missions/hubble/nasas-hubble-tracks-new-decagon-encircling-saturns-south-pole/">NASA’s Hubble announcement</a>
+    <span class="by">NASA, September 2, 2026</span>
+    <p>The primary write-up, with the Hubble images. The paper itself is <a href="https://www.science.org/doi/10.1126/sciadv.aee4251">“A decagon wave at Saturn’s south pole”</a> in <em>Science Advances</em>.</p>
+    <p class="more">Also covered by <a href="https://apnews.com/article/saturn-nasa-hubble-decagon-1fd4a0a90badacb6e4e18ac019ac6ead">the AP</a> and <a href="https://earthsky.org/space/saturns-south-pole-decagon-confirmed-a-mysterious-10-sided-figure/">EarthSky</a>.</p>
+  </div>
+</article>
+
+<!--FOOT:START--><footer class="edfoot"><span class="muted">This is where it starts</span><a href="archive.html">All editions</a></footer><!--FOOT:END-->
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- qubit playground ---------- */
+  var ang = document.getElementById("qp-angle");
+  if (ang) {
+    var cx = 150, cy = 150, R = 110;
+    var el = function (id) { return document.getElementById(id); };
+    var vec = el("qp-vec"), tip = el("qp-tip"), px = el("qp-px"), py = el("qp-py");
+    var anim = null;
+    function draw(deg) {
+      var t = deg * Math.PI / 180, a = Math.cos(t), b = Math.sin(t);
+      var x = cx + R * a, y = cy - R * b;
+      vec.setAttribute("x2", x); vec.setAttribute("y2", y);
+      tip.setAttribute("cx", x); tip.setAttribute("cy", y);
+      px.setAttribute("x1", x); px.setAttribute("y1", y); px.setAttribute("x2", x); px.setAttribute("y2", cy);
+      py.setAttribute("x1", x); py.setAttribute("y1", y); py.setAttribute("x2", cx); py.setAttribute("y2", y);
+      el("qp-a").textContent = a.toFixed(2).replace("-0.00", "0.00");
+      el("qp-b").textContent = b.toFixed(2).replace("-0.00", "0.00");
+      var p0 = Math.round(a * a * 100), p1 = 100 - p0;
+      el("qp-p0").style.width = p0 + "%"; el("qp-p1").style.width = p1 + "%";
+      el("qp-p0v").textContent = p0 + "%"; el("qp-p1v").textContent = p1 + "%";
+    }
+    function animateTo(target) {
+      if (anim) cancelAnimationFrame(anim);
+      var start = +ang.value;
+      var diff = ((target - start + 540) % 360) - 180;
+      if (reduce) { ang.value = target; draw(target); return; }
+      var t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var k = Math.min(1, (ts - t0) / 450), e = 1 - Math.pow(1 - k, 3);
+        var v = (start + diff * e + 360) % 360;
+        ang.value = Math.round(v); draw(v);
+        if (k < 1) anim = requestAnimationFrame(step);
+      }
+      anim = requestAnimationFrame(step);
+    }
+    ang.addEventListener("input", function () { el("qp-out").textContent = ""; draw(+ang.value); });
+    el("qp-once").addEventListener("click", function () {
+      var t = ang.value * Math.PI / 180, p0 = Math.pow(Math.cos(t), 2);
+      var got = Math.random() < p0 ? 0 : 1;
+      el("qp-out").innerHTML = "Measured <b>" + got + "</b>. The qubit is now |" + got + "⟩, and the old amplitudes are gone.";
+      animateTo(got === 0 ? 0 : 90);
+    });
+    el("qp-many").addEventListener("click", function () {
+      var t = ang.value * Math.PI / 180, p0 = Math.pow(Math.cos(t), 2), n0 = 0;
+      for (var i = 0; i < 100; i++) if (Math.random() < p0) n0++;
+      el("qp-hist").hidden = false;
+      el("qp-h0").style.width = n0 + "%"; el("qp-h1").style.width = (100 - n0) + "%";
+      el("qp-h0v").textContent = n0; el("qp-h1v").textContent = 100 - n0;
+      el("qp-out").innerHTML = "100 qubits prepared the same way: <b>" + n0 + "</b> zeros, <b>" + (100 - n0) + "</b> ones. Close to the odds, never exact.";
+    });
+    draw(+ang.value);
+  }
+
+  /* ---------- request stepper ---------- */
+  var steps = [
+    ["Parse the URL", "The browser decides whether you typed an address or a search, converts any non-ASCII hostname to plain ASCII (Punycode), and checks its preloaded HSTS list of sites that must only be reached over HTTPS."],
+    ["Find the server (DNS)", "The browser needs an IP address. It checks its own cache, then the operating system’s cache and hosts file, then asks a DNS resolver (usually your router or ISP), which walks the DNS hierarchy if it doesn’t already know. The query normally goes over UDP port 53."],
+    ["Open a connection (TCP)", "A three-way handshake: SYN, SYN-ACK, ACK. Both sides agree on starting sequence numbers so lost or out-of-order packets can be detected and resent later."],
+    ["Secure it (TLS)", "The server proves who it is with a certificate signed by an authority your device trusts, and both sides derive shared encryption keys. With TLS 1.3, used by most sites today, this takes one round trip; the article describes the older two-round-trip TLS 1.2 flow."],
+    ["Send the request (HTTP)", "Now the actual ask: a method (GET), a path (/), a Host header saying which site you want, plus others such as cookies and cache validators."],
+    ["The server does the work", "A web server like nginx receives the request, matches it to a site and a route, maybe rewrites it, then hands it to application code. That code may query a database before building the response."],
+    ["Get the response", "A status code, headers and a body. 200 means “here’s the content.” 304 Not Modified means your cached copy is still good, so no body is sent at all."],
+    ["Render the page", "The browser parses HTML into the DOM, applies CSS, computes layout, paints, and composites layers on the GPU. Every image, stylesheet and script the HTML references triggers its own request, repeating steps 2 to 7 unless it’s cached."]
+  ];
+  var fig = document.getElementById("req-stepper");
+  if (fig) {
+    var cur = 0, groups = fig.querySelectorAll("[data-step]");
+    var prev = document.getElementById("st-prev"), next = document.getElementById("st-next"), all = document.getElementById("st-all");
+    function show(i) {
+      cur = i;
+      fig.classList.add("focus");
+      groups.forEach(function (g) { g.classList.toggle("on", +g.getAttribute("data-step") === i + 1); });
+      document.getElementById("st-title").textContent = "Step " + (i + 1) + " of 8: " + steps[i][0];
+      document.getElementById("st-body").textContent = steps[i][1];
+      prev.disabled = i === 0;
+      next.disabled = i === steps.length - 1;
+    }
+    prev.addEventListener("click", function () { if (cur > 0) show(cur - 1); });
+    next.addEventListener("click", function () { if (cur < steps.length - 1) show(cur + 1); });
+    all.addEventListener("click", function () {
+      fig.classList.remove("focus");
+      document.getElementById("st-title").textContent = "All eight steps";
+      document.getElementById("st-body").textContent = "Steps 2 to 4 are pure setup: no page content has moved yet. That setup is exactly what CDNs, connection reuse and HTTP/3 try to shrink.";
+      prev.disabled = false; next.disabled = false;
+    });
+    groups.forEach(function (g) {
+      g.style.cursor = "pointer";
+      g.addEventListener("click", function () { show(+g.getAttribute("data-step") - 1); });
+    });
+    show(0);
+  }
+
+  /* ---------- token vectors (decorative cells) ---------- */
+  var cells = document.getElementById("vec-cells");
+  if (cells) {
+    var xs = [26, 60, 98, 143, 193, 241, 286], seed = 7;
+    function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    var ns = "http://www.w3.org/2000/svg";
+    xs.forEach(function (x) {
+      for (var r = 0; r < 6; r++) {
+        var c = document.createElementNS(ns, "rect");
+        c.setAttribute("x", x - 5); c.setAttribute("y", 126 + r * 8);
+        c.setAttribute("width", 10); c.setAttribute("height", 6); c.setAttribute("rx", 1.5);
+        c.setAttribute("opacity", (0.2 + rnd() * 0.8).toFixed(2));
+        cells.appendChild(c);
+      }
+    });
+  }
+
+  /* ---------- next-word predictor ---------- */
+  var cands = [["sugar", 3.0], ["honey", 1.6], ["cinnamon", 1.3], ["vanilla", 0.9], ["a croissant", 0.5], ["nothing", 0.1]];
+  var barsEl = document.getElementById("pr-bars");
+  if (barsEl) {
+    var temp = document.getElementById("pr-temp"), picked = -1;
+    cands.forEach(function (c, i) {
+      var row = document.createElement("div");
+      row.className = "bar";
+      row.style.gridTemplateColumns = "92px 1fr 46px";
+      row.innerHTML = '<span>' + c[0] + '</span><span class="track"><span class="fill"></span></span><span class="val"></span>';
+      barsEl.appendChild(row);
+    });
+    function probs() {
+      var T = +temp.value, ex = cands.map(function (c) { return Math.exp(c[1] / T); });
+      var s = ex.reduce(function (a, b) { return a + b; }, 0);
+      return ex.map(function (e) { return e / s; });
+    }
+    function render() {
+      document.getElementById("pr-tv").textContent = (+temp.value).toFixed(1);
+      var p = probs();
+      Array.prototype.forEach.call(barsEl.children, function (row, i) {
+        row.querySelector(".fill").style.width = (p[i] * 100).toFixed(1) + "%";
+        row.querySelector(".val").textContent = Math.round(p[i] * 100) + "%";
+        row.classList.toggle("picked", i === picked);
+      });
+    }
+    temp.addEventListener("input", render);
+    document.getElementById("pr-go").addEventListener("click", function () {
+      var p = probs(), r = Math.random(), acc = 0;
+      for (var i = 0; i < p.length; i++) { acc += p[i]; if (r <= acc) break; }
+      picked = Math.min(i, p.length - 1);
+      document.getElementById("pr-pick").textContent = cands[picked][0];
+      render();
+    });
+    document.getElementById("pr-reset").addEventListener("click", function () {
+      picked = -1; temp.value = 1; document.getElementById("pr-pick").textContent = "…"; render();
+    });
+    render();
+  }
+
+  /* ---------- Saturn polygons ---------- */
+  function poly(id, cx, cy, r, n, jitter, rot) {
+    var p = document.getElementById(id); if (!p) return;
+    var pts = [];
+    for (var i = 0; i < n; i++) {
+      var a = rot + i * 2 * Math.PI / n, rr = r + (jitter ? jitter[i % jitter.length] : 0);
+      pts.push((cx + rr * Math.cos(a)).toFixed(1) + "," + (cy + rr * Math.sin(a)).toFixed(1));
+    }
+    p.setAttribute("points", pts.join(" "));
+  }
+  poly("hexagon", 85, 98, 50, 6, null, Math.PI / 6);
+  poly("decagon", 255, 98, 52, 10, [0, 3, -2, 4, -3, 1, -4, 2, 3, -1], 0.2);
+})();
+</script>
+</body>
+</html>

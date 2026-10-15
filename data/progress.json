@@ -1,0 +1,142 @@
+{
+  "site": {
+    "title": "Daily Brief",
+    "timezone": "America/Vancouver",
+    "start_date": "2026-10-15"
+  },
+  "tracks": [
+    {
+      "id": "quantum",
+      "name": "Quantum computing",
+      "short": "Quantum",
+      "syllabus": [
+        {"id": "qubits", "title": "Qubits & superposition"},
+        {"id": "gates-x-h", "title": "Quantum gates: NOT (X) and Hadamard"},
+        {"id": "interference", "title": "Interference: why amplitudes can cancel"},
+        {"id": "multi-qubit", "title": "Multiple qubits & the CNOT gate"},
+        {"id": "entanglement", "title": "Entanglement"},
+        {"id": "circuits", "title": "Reading quantum circuits"},
+        {"id": "deutsch-jozsa", "title": "A first speedup: Deutsch–Jozsa"},
+        {"id": "grover", "title": "Grover's search algorithm"},
+        {"id": "shor", "title": "Shor's algorithm & cryptography"},
+        {"id": "noise", "title": "Noise, decoherence & error correction"},
+        {"id": "hardware", "title": "Hardware: superconducting, ions, atoms, photons"},
+        {"id": "fault-tolerance", "title": "Logical qubits & fault tolerance"}
+      ]
+    },
+    {
+      "id": "systems",
+      "name": "Software engineering",
+      "short": "Systems",
+      "syllabus": [
+        {"id": "web-request", "title": "Anatomy of a web request"},
+        {"id": "http-apis", "title": "HTTP & APIs: methods, status codes, REST"},
+        {"id": "databases", "title": "Databases: SQL vs NoSQL, indexes"},
+        {"id": "caching", "title": "Caching: browser, CDN, Redis"},
+        {"id": "scaling", "title": "Load balancing & horizontal scaling"},
+        {"id": "queues", "title": "Async work: queues & background jobs"},
+        {"id": "containers", "title": "Containers & Docker"},
+        {"id": "cicd", "title": "CI/CD pipelines"},
+        {"id": "cloud-iac", "title": "Cloud infrastructure & infrastructure as code"},
+        {"id": "kubernetes", "title": "Kubernetes & orchestration"},
+        {"id": "observability", "title": "Observability: logs, metrics, traces"},
+        {"id": "reliability", "title": "Reliability: SLOs, incidents, postmortems"},
+        {"id": "security", "title": "Auth & security basics"},
+        {"id": "system-design", "title": "Putting it together: a system design case study"}
+      ]
+    },
+    {
+      "id": "ai",
+      "name": "AI",
+      "short": "AI",
+      "syllabus": [
+        {"id": "llm-basics", "title": "How LLMs work: word vectors & next-word prediction"},
+        {"id": "tokens-sampling", "title": "Tokens, context windows & sampling"},
+        {"id": "attention", "title": "Transformers & attention, up close"},
+        {"id": "training-stages", "title": "Pretraining, fine-tuning & RLHF"},
+        {"id": "prompting", "title": "Prompting that works"},
+        {"id": "embeddings-rag", "title": "Embeddings & retrieval (RAG)"},
+        {"id": "tool-use", "title": "Tool use & function calling"},
+        {"id": "mcp", "title": "MCP: the Model Context Protocol"},
+        {"id": "agents", "title": "Agents & agent loops"},
+        {"id": "fine-tuning", "title": "Fine-tuning in practice: LoRA & QLoRA"},
+        {"id": "evals", "title": "Evals: measuring model quality"},
+        {"id": "inference", "title": "Serving models: GPUs, quantization, cost"},
+        {"id": "safety", "title": "Alignment & safety basics"}
+      ]
+    },
+    {
+      "id": "wildcard",
+      "name": "Wildcard",
+      "short": "Wildcard",
+      "syllabus": []
+    }
+  ],
+  "editions": [
+    {
+      "date": "2026-10-15",
+      "day": 1,
+      "mode": "learn",
+      "title": "Day 1: the first stop on every line",
+      "file": "editions/2026-10-15.html",
+      "items": [
+        {
+          "track": "quantum",
+          "stop": "qubits",
+          "anchor": "quantum",
+          "title": "A qubit is a vector, not a coin mid-flip",
+          "takeaways": [
+            "A qubit's state is a unit-length vector in a 2-D space, written α|0⟩ + β|1⟩.",
+            "The amplitudes obey |α|² + |β|² = 1. \"Superposition\" just means a linear combination.",
+            "Measuring gives 0 or 1 with probabilities |α|² and |β|², and leaves the qubit in that basis state."
+          ],
+          "sources": [
+            {"title": "Quantum computing for the very curious", "by": "Andy Matuschak & Michael Nielsen", "url": "https://quantum.country/qcvc"}
+          ]
+        },
+        {
+          "track": "systems",
+          "stop": "web-request",
+          "anchor": "systems",
+          "title": "Eight things happen before a web page appears",
+          "takeaways": [
+            "Before any HTTP is sent, the browser has to find the server (DNS) and open an encrypted connection (TCP + TLS).",
+            "The server routes the request to code that builds a response; status codes like 200 and 304 tell the browser what happened.",
+            "Rendering repeats the fetch cycle for every image, script and stylesheet, so most performance work is about skipping steps."
+          ],
+          "sources": [
+            {"title": "What happens when…", "by": "alex/what-happens-when on GitHub", "url": "https://github.com/alex/what-happens-when"}
+          ]
+        },
+        {
+          "track": "ai",
+          "stop": "llm-basics",
+          "anchor": "ai",
+          "title": "A language model is a next-word machine with a very good map of words",
+          "takeaways": [
+            "LLMs represent each word as a long vector, and words with similar meanings sit close together.",
+            "A stack of layers refines those vectors: attention pulls in context from the prompt, feed-forward layers add learned knowledge.",
+            "Training is next-word prediction over huge amounts of text, with backpropagation adjusting billions of weights."
+          ],
+          "sources": [
+            {"title": "Large language models, explained with a minimum of math and jargon", "by": "Timothy B. Lee & Sean Trott", "url": "https://www.understandingai.org/p/large-language-models-explained-with"}
+          ]
+        },
+        {
+          "track": "wildcard",
+          "anchor": "wildcard",
+          "title": "Saturn grew a ten-sided storm, and no one knows why now",
+          "takeaways": [
+            "Saturn now has a ten-sided wave around its south pole, a counterpart to the long-lived north-pole hexagon.",
+            "It rides a jet stream, extends through several atmospheric layers, drifts east about 10 km/h, and each side is longer than Earth is wide.",
+            "It appears to have formed between 2017 and 2023, and why it formed now is unknown."
+          ],
+          "sources": [
+            {"title": "NASA's Hubble announcement", "by": "NASA", "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-tracks-new-decagon-encircling-saturns-south-pole/"},
+            {"title": "A decagon wave at Saturn's south pole", "by": "Science Advances", "url": "https://www.science.org/doi/10.1126/sciadv.aee4251"}
+          ]
+        }
+      ]
+    }
+  ]
+}
